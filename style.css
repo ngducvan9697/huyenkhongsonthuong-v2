@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 html {
@@ -27,11 +28,11 @@ body {
 }
 .content .preload {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   -webkit-justify-content: center;
   align-items: center;
   -webkit-align-items: center;
+  flex-direction: column;
   position: fixed;
   width: 100%;
   height: 100%;
@@ -61,36 +62,100 @@ body {
 }
 .content .navigation .announcement {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   -webkit-justify-content: center;
   align-items: center;
   -webkit-align-items: center;
+  flex-direction: column;
   padding-right: 20px;
   padding-left: 20px;
-  position: relative;
   background-color: #f4a074;
 }
 .content .navigation .announcement-container {
   width: 100%;
   max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
   padding: 10px 35px;
 }
 .content .navigation .announcement-container .close-button-regular {
+  display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  flex-direction: column;
   position: absolute;
   left: auto;
   top: 0%;
   right: 0%;
   bottom: 0%;
   z-index: 0;
+  width: 35px;
+  color: white;
+  transform: rotate(0);
+  transition: transform 0.5s ease;
+}
+.content .navigation .announcement-container .close-button-regular:hover {
+  transform: rotate(180deg);
 }
 .content .navigation .announcement-container .announcement-box {
   text-align: center;
 }
 .content .navigation .announcement-container .announcement-box-content {
   font-weight: bold;
-  text-decoration: none;
-  color: #fff;
+  color: white;
+}
+.content .navigation .navbar {
+  background-color: white;
+}
+.content .navigation .navbar-content-wrapper {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  padding-right: 10px;
+  padding-left: 20px;
+  height: 80px;
+}
+.content .navigation .navbar-content-wrapper .brand {
+  display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  flex-direction: row;
+  margin-right: 10px;
+  transition: transform 0.3s;
+}
+.content .navigation .navbar-content-wrapper .brand:hover {
+  transform: scale(1.1);
+}
+.content .navigation .navbar-content-wrapper .brand img {
+  max-height: 80%;
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 10px;
+}
+.content .navigation .navbar-content-wrapper .nav-menu {
+  display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.content .navigation .navbar-content-wrapper .nav-menu .left-nav-menu {
+  display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  flex-direction: row;
 }
 
 /*# sourceMappingURL=style.css.map */

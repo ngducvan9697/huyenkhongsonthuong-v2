@@ -59,6 +59,15 @@ button {
   font-size: 0.938rem;
 }
 
+.close-element {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
 /*=============== REUSABLE CSS CLASSES ===============*/
 /*=============== ANIMATION ===============*/
 @keyframes rotate {
@@ -382,16 +391,17 @@ button {
   display: flex;
 }
 .content .navigation .newsletter-container {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
   display: flex;
   justify-content: center;
   -webkit-justify-content: center;
   align-items: center;
   -webkit-align-items: center;
   flex-direction: row;
-  display: none;
+  display: flex;
   position: fixed;
-  opacity: 0;
-  transition: opacity 1s ease;
   left: 0;
   top: 0;
   right: 0;
@@ -401,8 +411,8 @@ button {
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
 }
 .content .navigation .newsletter-container.show {
-  display: flex !important;
   opacity: 1 !important;
+  visibility: visible !important;
 }
 .content .navigation .newsletter-container .close-element {
   position: absolute;
@@ -546,6 +556,107 @@ button {
   transition: transform 0.5s ease;
 }
 .content .navigation .newsletter-container .newsletter-box .newletter-column.right .close-contact-form i:hover {
+  transform: rotate(180deg);
+}
+.content .navigation .search-bg {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+  display: flex;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 1000000;
+  overflow: auto;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.content .navigation .search-bg.show {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+.content .navigation .search-bg .search-box {
+  position: relative;
+  z-index: 9;
+  display: flex;
+  width: 43%;
+  max-width: 460px;
+  padding-top: 70px;
+  flex-direction: column;
+}
+.content .navigation .search-bg .search-box .center-text {
+  text-align: center;
+}
+.content .navigation .search-bg .search-box .center-text .search-text {
+  position: relative;
+  z-index: 1;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  color: #1b222c;
+  font-size: 36px;
+  line-height: 40px;
+}
+.content .navigation .search-bg .search-box .search-controls {
+  display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  flex-direction: row;
+  margin-top: 20px;
+}
+.content .navigation .search-bg .search-box .search-controls .search-input {
+  display: block;
+  width: 73%;
+  height: 55px;
+  margin-bottom: 0px;
+  padding-left: 15px;
+  border-radius: 2px 0px 0px 2px;
+  background-color: #fff;
+  transition: border-color 200ms ease;
+  color: #7f8893;
+  font-size: 13px;
+  font-style: italic;
+  padding: 8px 12px;
+  border: 1px solid #cccccc;
+}
+.content .navigation .search-bg .search-box .search-controls .search-button {
+  height: 55px;
+  padding-top: 13px;
+  flex: 1;
+  border-radius: 0px 2px 2px 0px;
+  background-color: #f4a074;
+  transition: opacity 200ms ease;
+  color: #fff;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 9px 15px;
+  border: none;
+}
+.content .navigation .search-bg .close-search {
+  display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  z-index: 10;
+}
+.content .navigation .search-bg .close-search i {
+  font-size: 5rem;
+  transform: rotate(0);
+  transition: transform 0.5s ease;
+}
+.content .navigation .search-bg .close-search i:hover {
   transform: rotate(180deg);
 }
 

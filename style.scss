@@ -123,6 +123,15 @@ button {
   font-size: $normal-font-size;
 }
 
+.close-element {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
 /*=============== REUSABLE CSS CLASSES ===============*/
 @mixin flex-item-center-row {
   @include flex-item-center();
@@ -147,6 +156,25 @@ button {
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
+}
+
+@mixin hover-rotate-button {
+  transform: rotate(0);
+  transition: transform 0.5s ease;
+
+  &:hover {
+    transform: rotate(180deg);
+  }
+}
+
+@mixin show-hide-transition {
+  &.show {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
 }
 
 /*=============== ANIMATION ===============*/
@@ -214,12 +242,7 @@ button {
           width: 35px;
           font-size: $medium-icon-font-size;
           color: white;
-          transform: rotate(0);
-          transition: transform 0.5s ease;
-
-          &:hover {
-            transform: rotate(180deg);
-          }
+          @include hover-rotate-button();
         }
         .announcement-box {
           text-align: center;
@@ -487,15 +510,10 @@ button {
     }
 
     .newsletter-container {
-      &.show {
-        display: flex !important;
-        opacity: 1 !important;
-      }
+      @include show-hide-transition();
       @include flex-item-center-row();
-      display: none;
+      display: flex;
       position: fixed;
-      opacity: 0;
-      transition: opacity 1s ease;
       left: 0;
       top: 0;
       right: 0;
@@ -649,15 +667,95 @@ button {
               i {
                 font-size: 3.5rem;
                 color: white;
-                transform: rotate(0);
-                transition: transform 0.5s ease;
-
-                &:hover {
-                  transform: rotate(180deg);
-                }
+                @include hover-rotate-button();
               }
             }
           }
+        }
+      }
+    }
+
+    .search-bg {
+      @include show-hide-transition();
+      display: flex;
+      position: fixed;
+      left: 0px;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      z-index: 1000000;
+      overflow: auto;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.9);
+      flex-direction: column;
+      justify-content: flex-start;
+      .search-box {
+        position: relative;
+        z-index: 9;
+        display: flex;
+        width: 43%;
+        max-width: 460px;
+        padding-top: 70px;
+        flex-direction: column;
+
+        .center-text {
+          text-align: center;
+          .search-text {
+            position: relative;
+            z-index: 1;
+            margin-top: 5px;
+            margin-bottom: 0px;
+            color: #1b222c;
+            font-size: 36px;
+            line-height: 40px;
+          }
+        }
+        .search-controls {
+          @include flex-item-center-row();
+          margin-top: 20px;
+
+          .search-input {
+            display: block;
+            width: 73%;
+            height: 55px;
+            margin-bottom: 0px;
+            padding-left: 15px;
+            border-radius: 2px 0px 0px 2px;
+            background-color: #fff;
+            transition: border-color 200ms ease;
+            color: #7f8893;
+            font-size: 13px;
+            font-style: italic;
+            padding: 8px 12px;
+            border: 1px solid #cccccc;
+          }
+          .search-button {
+            height: 55px;
+            padding-top: 13px;
+            flex: 1;
+            border-radius: 0px 2px 2px 0px;
+            background-color: $primary-color;
+            transition: opacity 200ms ease;
+            color: #fff;
+            font-size: 14px;
+            line-height: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            display: inline-block;
+            padding: 9px 15px;
+            border: none;
+          }
+        }
+      }
+      .close-search {
+        @include flex-item-center();
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        z-index: 10;
+        i {
+          font-size: 5rem;
+          @include hover-rotate-button();
         }
       }
     }

@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*=============== GOOGLE FONTS ===============*/
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600;700&display=swap");
 /*=============== VARIABLES CSS ===============*/
@@ -389,8 +388,10 @@ button {
   align-items: center;
   -webkit-align-items: center;
   flex-direction: row;
+  display: none;
   position: fixed;
-  opacity: 1;
+  opacity: 0;
+  transition: opacity 1s ease;
   left: 0;
   top: 0;
   right: 0;
@@ -398,6 +399,10 @@ button {
   z-index: 9007199254740991;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0.7)));
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+}
+.content .navigation .newsletter-container.show {
+  display: flex !important;
+  opacity: 1 !important;
 }
 .content .navigation .newsletter-container .close-element {
   position: absolute;
@@ -421,7 +426,7 @@ button {
   width: 50%;
 }
 .content .navigation .newsletter-container .newsletter-box .newletter-column.left {
-  background-image: url("https://assets.website-files.com/6086e70…/60871c3…_lasse-jensen-9gHym1WiAL0-unsplash%20(1).jpg");
+  background-image: url("assets/images/gallery1.png");
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -437,6 +442,111 @@ button {
   padding: 40px;
   background-color: #e4edee;
   align-items: flex-start;
+}
+.content .navigation .newsletter-container .newsletter-box .newletter-column.right .center-content {
+  width: 100%;
+  text-align: center;
+}
+.content .navigation .newsletter-container .newsletter-box .newletter-column.right .center-content .title-big {
+  color: #f4a074;
+  line-height: 20px;
+}
+.content .navigation .newsletter-container .newsletter-box .newletter-column.right .center-content h4 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 400;
+}
+.content .navigation .newsletter-container .newsletter-box .newletter-column.right .center-content div:last-child {
+  font-weight: 500;
+}
+.content .navigation .newsletter-container .newsletter-box .newletter-column.right .form-newsletter {
+  margin: 20px 0 15px;
+  width: 100%;
+}
+.content .navigation .newsletter-container .newsletter-box .newletter-column.right .form-newsletter form .cta-field {
+  width: 48%;
+  height: 45px;
+  margin-bottom: 8px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #e4edee;
+  border-radius: 0px;
+  -webkit-transition: border-color 200ms ease;
+  transition: border-color 200ms ease;
+  padding: 8px 12px;
+  background-color: #ffffff;
+}
+.content .navigation .newsletter-container .newsletter-box .newletter-column.right .form-newsletter form .flex {
+  display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.content .navigation .newsletter-container .newsletter-box .newletter-column.right .form-newsletter form .full {
+  width: 100%;
+}
+.content .navigation .newsletter-container .newsletter-box .newletter-column.right .form-newsletter form .submit-button {
+  width: 100%;
+  height: 43px;
+  background-color: #9bc3ca;
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: white;
+}
+.content .navigation .newsletter-container .newsletter-box .newletter-column.right .form-newsletter .success-message {
+  background-color: transparent;
+  color: #000;
+  font-size: 13px;
+  line-height: 18px;
+  display: none;
+  padding: 20px;
+  text-align: center;
+}
+.content .navigation .newsletter-container .newsletter-box .newletter-column.right .form-newsletter .success-message img {
+  max-width: 100%;
+  vertical-align: middle;
+  display: inline-block;
+  width: 35px;
+}
+.content .navigation .newsletter-container .newsletter-box .newletter-column.right .form-newsletter .success-message > div {
+  margin-top: 10px;
+}
+.content .navigation .newsletter-container .newsletter-box .newletter-column.right .form-newsletter .error-message {
+  display: none;
+  width: 100%;
+  font-size: 13px;
+  line-height: 18px;
+  text-align: left;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #ffdede;
+}
+.content .navigation .newsletter-container .newsletter-box .newletter-column.right .close-contact-form {
+  display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border-bottom-left-radius: 5px;
+  background-color: #9bc3ca;
+}
+.content .navigation .newsletter-container .newsletter-box .newletter-column.right .close-contact-form i {
+  font-size: 3.5rem;
+  color: white;
+  transform: rotate(0);
+  transition: transform 0.5s ease;
+}
+.content .navigation .newsletter-container .newsletter-box .newletter-column.right .close-contact-form i:hover {
+  transform: rotate(180deg);
 }
 
 /*# sourceMappingURL=style.css.map */

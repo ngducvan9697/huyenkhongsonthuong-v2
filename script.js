@@ -14,3 +14,17 @@ if (categoryButton) {
         }
     });
 }
+function attachToggleClassForElement(objectAttach, objectDestination, affectClass) {
+    var element = document.querySelector(objectAttach);
+    if (element) {
+        element.addEventListener("click", function () {
+            var destination = document.querySelector(objectDestination);
+            if (destination) {
+                destination.classList.toggle(affectClass);
+            }
+        });
+    }
+}
+attachToggleClassForElement(".category-toogle", ".category-dropdown", "show");
+attachToggleClassForElement(".mail-icon", ".newsletter-container", "show");
+attachToggleClassForElement(".close-contact-form", ".newsletter-container", "show");

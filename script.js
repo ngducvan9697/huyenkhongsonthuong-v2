@@ -23,3 +23,12 @@ attachToggleClassForElement(".close-contact-form", ".newsletter-container", "sho
 attachToggleClassForElement(".search-icon", ".search-bg", "show");
 attachToggleClassForElement(".search-bg .close-element", ".search-bg", "show");
 attachToggleClassForElement(".close-search", ".search-bg", "show");
+var headerSwiper = new Swiper(".slider-container", {
+    loop: true,
+    spaceBetween: 30,
+    effect: "fade",
+    autoplay: {
+        delay: 10000,
+        disableOnInteraction: false,
+    },
+});

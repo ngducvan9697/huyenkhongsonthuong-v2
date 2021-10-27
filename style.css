@@ -817,15 +817,66 @@ button {
   bottom: 0%;
   z-index: 1;
   overflow: hidden;
-  width: 505px;
-  margin-bottom: 1px;
-  padding-top: 20px;
-  padding-bottom: 2px;
-  padding-left: 4px;
+  width: 520px;
+  margin-bottom: 10px;
+  padding: 20px;
+  padding: 20px;
+  padding-left: 40px;
+}
+.content .news-slider .slider-container .mini-slider-box .mini-slider-container {
+  display: block;
+  width: 720px;
+  transform: translateX(-265px);
+}
+.content .news-slider .slider-container .mini-slider-box .mini-slider-container .mini-slider-wrapper {
+  display: flex;
+  position: static;
 }
 .content .news-slider .slider-container .mini-slider-box .mini-slider-container .mini-slider-wrapper .slide-mini-item {
-  width: 205px;
+  width: 215px;
   border-radius: 5px;
+  overflow: hidden;
+}
+.content .news-slider .slider-container .mini-slider-box .mini-slider-container .mini-slider-wrapper .slide-mini-item .flex .top-slide {
+  max-width: 100%;
+  display: flex;
+  align-items: flex-end;
+  border-radius: 5px 5px 0px 0px;
+}
+.content .news-slider .slider-container .mini-slider-box .mini-slider-container .mini-slider-wrapper .slide-mini-item .flex .top-slide img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+}
+.content .news-slider .slider-container .mini-slider-box .mini-slider-container .mini-slider-wrapper .slide-mini-item .flex .bottom-slide {
+  flex-direction: column;
+  border-radius: 0px;
+  display: flex;
+  background-color: #15304b;
+  color: #f4a074;
+  padding: 12px 14px 14px;
+}
+.content .news-slider .slider-container .mini-slider-box .mini-slider-container .mini-slider-wrapper .slide-mini-item .flex .bottom-slide .category-link {
+  font-size: 13.5px;
+  line-height: 17px;
+  color: #f4a074;
+}
+.content .news-slider .slider-container .mini-slider-box .mini-slider-container .mini-slider-wrapper .slide-mini-item .flex .bottom-slide div {
+  margin-top: 5px;
+}
+.content .news-slider .slider-container .mini-slider-box .mini-slider-container .mini-slider-wrapper .slide-mini-item .flex .bottom-slide div .post-preview {
+  color: #fff;
+  font-size: 16px;
+  line-height: 22px;
+  transition: color 200ms ease;
+}
+.content .news-slider .slider-container .mini-slider-box .mini-slider-container .mini-slider-wrapper .slide-mini-item .flex .bottom-slide div .read-more {
+  transition: opacity 200ms ease;
+  font-size: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #f4a074;
 }
 
 /*# sourceMappingURL=style.css.map */

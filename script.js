@@ -28,7 +28,20 @@ var headerSwiper = new Swiper(".main-slider-container", {
     spaceBetween: 30,
     effect: "fade",
     autoplay: {
-        delay: 10000,
+        delay: 5000,
+        disableOnInteraction: false,
+    },
+});
+var miniSwiper = new Swiper(".mini-slider-container", {
+    loop: true,
+    slidesPerView: 3,
+    slidesPerGroup: 1,
+    spaceBetween: 25,
+    thumbs: {
+        swiper: headerSwiper,
+    },
+    autoplay: {
+        delay: 5000,
         disableOnInteraction: false,
     },
 });

@@ -42,7 +42,7 @@ attachToggleClassForElement(".search-icon", ".search-bg", "show");
 attachToggleClassForElement(".search-bg .close-element", ".search-bg", "show");
 attachToggleClassForElement(".close-search", ".search-bg", "show");
 
-let headerSwiper = new Swiper(".slider-container", {
+let headerSwiper = new Swiper(".main-slider-container", {
   loop: true,
   spaceBetween: 30,
   effect: "fade",

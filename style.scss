@@ -781,132 +781,135 @@ button {
       position: relative;
       overflow: hidden;
       margin-top: 120px;
-      .main-slider-wrapper {
-        @keyframes progress {
-          from {
-            width: 0%;
-          }
-          to {
-            width: 100%;
-          }
-        }
-
-        .slider-item {
-          position: relative;
-          &.swiper-slide-active {
-            &::after {
-              position: absolute;
-              content: "";
-              bottom: 0;
-              height: 4px;
-              background-color: $primary-color;
-              animation: progress 10s ease;
+      .main-slider-container {
+        .main-slider-wrapper {
+          @keyframes progress {
+            from {
+              width: 0%;
             }
-
-            & .text-box {
-              opacity: 1 !important;
-              transform: translateY(0) !important;
+            to {
+              width: 100%;
             }
           }
-          .content-wrapper {
-            .bg {
-              max-height: 590px;
-              .image-bg {
-                img {
-                  width: 100%;
-                  min-height: 590px;
-                  object-fit: cover;
-                }
+
+          .slider-item {
+            position: relative;
+            &.swiper-slide-active {
+              &::after {
+                position: absolute;
+                content: "";
+                bottom: 0;
+                height: 4px;
+                background-color: $primary-color;
+                animation: progress 10s ease;
               }
-              .text-box {
-                @include absolute-full-size();
-                @include flex-item-center-column();
-                opacity: 0;
-                justify-content: flex-start;
-                width: 50%;
-                height: 100%;
-                margin-right: auto;
-                padding: 160px 35px 60px 4%;
-                transform: translateY(10px);
-                transition: all 1s 0.3s ease;
-                .text-wrapper {
-                  & * {
-                    color: #fff;
+
+              & .text-box {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+              }
+            }
+            .content-wrapper {
+              .bg {
+                max-height: 590px;
+                .image-bg {
+                  img {
+                    width: 100%;
+                    min-height: 590px;
+                    object-fit: cover;
                   }
-                  .author-box {
-                    div {
-                      display: inline-block;
-                      margin-right: 3px;
-                      font-size: 13px;
-                      line-height: 18px;
+                }
+                .text-box {
+                  @include absolute-full-size();
+                  @include flex-item-center-column();
+                  opacity: 0;
+                  justify-content: flex-start;
+                  width: 50%;
+                  height: 100%;
+                  margin-right: auto;
+                  padding: 160px 35px 60px 4%;
+                  transform: translateY(10px);
+                  transition: all 1s 0.3s ease;
+                  .text-wrapper {
+                    & * {
+                      color: #fff;
                     }
-                    a {
-                      transition: color 200ms ease;
-                      display: inline;
-                      margin-right: 3px;
-                      font-size: 13px;
-                      line-height: 18px;
-                      font-weight: 600;
-                      text-decoration: none;
-                    }
-                  }
-                  .title-post {
-                    margin-top: 15px;
-                    a {
-                      position: relative;
-                      transition: color 200ms ease;
-                      font-size: 40px;
-                      line-height: 48px;
-                    }
-                  }
-                  .date-post {
-                    margin-top: 15px;
-                    .flex {
-                      @include flex-item-center-row();
-                      justify-content: flex-start;
-                      i {
-                        font-size: 1.2rem;
-                      }
-                      .date {
-                        position: relative;
-                        top: -1px;
+                    .author-box {
+                      div {
                         display: inline-block;
                         margin-right: 3px;
-                        margin-left: 1px;
                         font-size: 13px;
                         line-height: 18px;
                       }
+                      a {
+                        transition: color 200ms ease;
+                        display: inline;
+                        margin-right: 3px;
+                        font-size: 13px;
+                        line-height: 18px;
+                        font-weight: 600;
+                        text-decoration: none;
+                      }
                     }
-                  }
-                  .description-post {
-                    margin-top: 20px;
-                    max-width: 285px;
-                    p {
-                      margin-bottom: 10px;
-                      letter-spacing: -0.35px;
+                    .title-post {
+                      margin-top: 15px;
+                      a {
+                        position: relative;
+                        transition: color 200ms ease;
+                        font-size: 40px;
+                        line-height: 48px;
+                      }
                     }
-                  }
+                    .date-post {
+                      margin-top: 15px;
+                      .flex {
+                        @include flex-item-center-row();
+                        justify-content: flex-start;
+                        i {
+                          font-size: 1.2rem;
+                        }
+                        .date {
+                          position: relative;
+                          top: -1px;
+                          display: inline-block;
+                          margin-right: 3px;
+                          margin-left: 1px;
+                          font-size: 13px;
+                          line-height: 18px;
+                        }
+                      }
+                    }
+                    .description-post {
+                      margin-top: 20px;
+                      max-width: 285px;
+                      p {
+                        margin-bottom: 10px;
+                        letter-spacing: -0.35px;
+                      }
+                    }
 
-                  .readmore-button {
-                    margin-top: 20px;
-                    a {
-                      display: inline-block;
-                      min-height: 42px;
-                      min-width: 120px;
-                      padding: 15px 30px 10px;
-                      border: 1px solid #fff;
-                      border-radius: 25px;
-                      background-color: transparent;
-                      transition: color 200ms ease, background-color 200ms ease;
-                      color: #fff;
-                      font-size: 12px;
-                      line-height: 12px;
-                      font-weight: 600;
-                      text-align: center;
-                      letter-spacing: -0.8px;
-                      &:hover {
-                        color: #1b222c;
-                        background-color: #fff;
+                    .readmore-button {
+                      margin-top: 20px;
+                      a {
+                        display: inline-block;
+                        min-height: 42px;
+                        min-width: 120px;
+                        padding: 15px 30px 10px;
+                        border: 1px solid #fff;
+                        border-radius: 25px;
+                        background-color: transparent;
+                        transition: color 200ms ease,
+                          background-color 200ms ease;
+                        color: #fff;
+                        font-size: 12px;
+                        line-height: 12px;
+                        font-weight: 600;
+                        text-align: center;
+                        letter-spacing: -0.8px;
+                        &:hover {
+                          color: #1b222c;
+                          background-color: #fff;
+                        }
                       }
                     }
                   }
@@ -916,7 +919,41 @@ button {
           }
         }
       }
-      .mini-slides-wrapper {
+      .mini-slider-box {
+        position: absolute;
+        right: 0%;
+        bottom: 0%;
+        z-index: 1;
+        overflow: hidden;
+        width: 505px;
+        margin-bottom: 1px;
+        padding-top: 20px;
+        padding-bottom: 2px;
+        padding-left: 4px;
+        .mini-slider-container {
+          .mini-slider-wrapper {
+            .slide-mini-item {
+              width: 205px;
+              border-radius: 5px;
+              .flex {
+                .top-slide {
+                  img {
+                  }
+                }
+                .bottom-slide {
+                  .category-link {
+                  }
+                  div {
+                    .post-preview {
+                    }
+                    .read-more {
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

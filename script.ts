@@ -46,8 +46,9 @@ let headerSwiper = new Swiper(".main-slider-container", {
   loop: true,
   spaceBetween: 30,
   effect: "fade",
+  allowTouchMove: false,
   autoplay: {
-    delay: 5000,
+    delay: 10000,
     disableOnInteraction: false,
   },
 });
@@ -61,7 +62,7 @@ var miniSwiper = new Swiper(".mini-slider-container", {
     swiper: headerSwiper,
   },
   autoplay: {
-    delay: 5000,
+    delay: 10000,
     disableOnInteraction: false,
   },
 });

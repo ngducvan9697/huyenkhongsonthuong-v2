@@ -123,6 +123,10 @@ button {
   font-size: $normal-font-size;
 }
 
+.relative {
+  position: relative;
+}
+
 .close-element {
   position: absolute;
   left: 0;
@@ -227,7 +231,48 @@ a.post-preview-white {
     opacity: 0.85;
   }
 }
+
+a.post-preview,
+a.post-preview-white {
+  transition: color 200ms ease !important;
+  &:hover {
+    color: $primary-color !important;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.date-block {
+  &.flex {
+    align-items: center;
+  }
+  i {
+    font-size: 1.2rem;
+  }
+  .date {
+    position: relative;
+    top: -1px;
+    display: inline-block;
+    margin-right: 3px;
+    margin-left: 1px;
+    font-size: 13px;
+    line-height: 18px;
+  }
+}
 /*=============== REUSABLE CSS CLASSES ===============*/
+@mixin img-scale-hover {
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+img.img-scale-hover {
+  @include img-scale-hover();
+}
+
 @mixin flex-item-center-row {
   @include flex-item-center();
   flex-direction: row;
@@ -957,20 +1002,7 @@ a.post-preview-white {
                     .date-post {
                       margin-top: 15px;
                       .flex {
-                        @include flex-item-center-row();
                         justify-content: flex-start;
-                        i {
-                          font-size: 1.2rem;
-                        }
-                        .date {
-                          position: relative;
-                          top: -1px;
-                          display: inline-block;
-                          margin-right: 3px;
-                          margin-left: 1px;
-                          font-size: 13px;
-                          line-height: 18px;
-                        }
                       }
                     }
                     .description-post {
@@ -1061,7 +1093,7 @@ a.post-preview-white {
                   border-radius: 5px 5px 0px 0px;
                   img {
                     width: 100%;
-                    height: 110px;
+                    height: 100%;
                     object-fit: cover;
                   }
                 }
@@ -1069,7 +1101,7 @@ a.post-preview-white {
                   flex-direction: column;
                   border-radius: 0px;
                   display: flex;
-
+                  min-width: 72px;
                   color: $primary-color;
                   padding: 12px 14px 14px;
                   div {
@@ -1078,10 +1110,6 @@ a.post-preview-white {
                       color: #fff;
                       font-size: 16px;
                       line-height: 22px;
-                      transition: color 200ms ease;
-                      &:hover {
-                        color: $primary-color;
-                      }
                     }
                     .read-more {
                       transition: opacity 200ms ease;
@@ -1169,6 +1197,62 @@ a.post-preview-white {
                 width: 48.6%;
                 height: 100%;
               }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .tag-post {
+    .content-wrapper {
+      .swiper {
+        .swiper-wrapper {
+          .swiper-slide {
+            .list-post {
+              @include flex-item-center-row();
+              justify-content: space-between;
+              column-gap: 10px;
+              align-items: flex-start;
+              .card {
+                flex: 1 1 0px;
+                overflow: hidden;
+                &-content {
+                  a.relative {
+                    width: 100%;
+                    img {
+                      @include img-scale-hover();
+                      width: 100%;
+                      height: 175px;
+                      object-fit: cover;
+                    }
+                  }
+                }
+
+                &-content {
+                  a.relative {
+                    img {
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .action-swiper {
+          @include flex-item-center-row();
+          justify-content: space-between;
+          position: absolute;
+          top: 2px;
+          right: 0;
+          column-gap: 5px;
+          z-index: 1;
+          div {
+            cursor: pointer;
+            i {
+              font-size: 2rem;
+              color: $primary-color;
             }
           }
         }

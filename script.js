@@ -46,3 +46,14 @@ var miniSwiper = new Swiper(".mini-slider-container", {
         disableOnInteraction: false,
     },
 });
+var tagPostSwiper = new Swiper(".tag-swiper", {
+    loop: true,
+    navigation: {
+        nextEl: ".tag-post .right-arrow ",
+        prevEl: ".tag-post .left-arrow",
+    },
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+    },
+});

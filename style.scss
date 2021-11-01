@@ -98,12 +98,75 @@ h4 {
   font-weight: $font-semi-bold;
 }
 
+h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-family: "Droid Serif", serif;
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 400;
+  &.h3-small {
+    font-size: 23px;
+    line-height: 29px;
+  }
+}
+
 a {
   text-decoration: none;
   cursor: pointer;
-
   &:visited {
     color: unset;
+  }
+  &.category-link {
+    font-size: 13.5px;
+    line-height: 17px;
+    color: $primary-color;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.85;
+      text-decoration: underline;
+    }
+  }
+
+  &.post-preview {
+    color: #1b222c;
+    &-white {
+      transition: opacity 0.3s ease;
+      color: #fff;
+      &.intro {
+        font-size: 20px;
+        line-height: 26px;
+      }
+      &.medium {
+        font-size: 22px;
+        line-height: 28px;
+      }
+      &:hover {
+        opacity: 0.85;
+      }
+    }
+
+    & .large {
+      font-size: 22px;
+      line-height: 28px;
+    }
+  }
+
+  &.post-preview,
+  &.post-preview-white {
+    transition: color 200ms ease !important;
+    &:hover {
+      color: $primary-color !important;
+    }
+  }
+}
+
+p {
+  letter-spacing: -0.35px;
+  &.subtitle-gray {
+    color: #69707b;
   }
 }
 
@@ -144,7 +207,7 @@ button {
   margin-left: auto;
   padding-top: 30px;
 
-  & > div:first-child {
+  .content-wrapper {
     position: relative;
     width: 100%;
     height: 100%;
@@ -155,11 +218,7 @@ button {
     padding-left: 25px;
 
     .h3-small {
-      font-size: 23px;
-      line-height: 29px;
       margin-top: 0px;
-      margin-bottom: 10px;
-      font-weight: 400;
     }
 
     & .flex,
@@ -203,50 +262,15 @@ button {
   }
 }
 
-a.category-link {
-  font-size: 13.5px;
-  line-height: 17px;
-  color: $primary-color;
-  opacity: 1;
-  transition: opacity 0.3s ease;
-
-  &:hover {
-    opacity: 0.85;
-    text-decoration: underline;
-  }
-}
-
-a.post-preview-white {
-  transition: opacity 0.3s ease;
-  color: #fff;
-  &.intro {
-    font-size: 20px;
-    line-height: 26px;
-  }
-  &.medium {
-    font-size: 22px;
-    line-height: 28px;
-  }
-  &:hover {
-    opacity: 0.85;
-  }
-}
-
-a.post-preview,
-a.post-preview-white {
-  transition: color 200ms ease !important;
-  &:hover {
-    color: $primary-color !important;
-  }
-}
-
 .flex {
   display: flex;
 }
 
 .date-block {
   &.flex {
+    column-gap: 3px;
     align-items: center;
+    justify-content: flex-start;
   }
   i {
     font-size: 1.2rem;
@@ -259,6 +283,30 @@ a.post-preview-white {
     margin-left: 1px;
     font-size: 13px;
     line-height: 18px;
+  }
+}
+
+div.author-box {
+  div.by {
+    display: inline-block;
+    margin-right: 3px;
+    font-size: 13px;
+    line-height: 18px;
+    color: #69707b;
+  }
+  a {
+    transition: color 200ms ease;
+    display: inline;
+    margin-right: 3px;
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #69707b;
+
+    &:hover {
+      color: $primary-color !important;
+    }
   }
 }
 /*=============== REUSABLE CSS CLASSES ===============*/
@@ -974,21 +1022,6 @@ img.img-scale-hover {
                       color: #fff;
                     }
                     .author-box {
-                      div {
-                        display: inline-block;
-                        margin-right: 3px;
-                        font-size: 13px;
-                        line-height: 18px;
-                      }
-                      a {
-                        transition: color 200ms ease;
-                        display: inline;
-                        margin-right: 3px;
-                        font-size: 13px;
-                        line-height: 18px;
-                        font-weight: 600;
-                        text-decoration: none;
-                      }
                     }
                     .title-post {
                       margin-top: 15px;
@@ -1001,9 +1034,6 @@ img.img-scale-hover {
                     }
                     .date-post {
                       margin-top: 15px;
-                      .flex {
-                        justify-content: flex-start;
-                      }
                     }
                     .description-post {
                       margin-top: 20px;
@@ -1255,6 +1285,79 @@ img.img-scale-hover {
               color: $primary-color;
             }
           }
+        }
+      }
+    }
+  }
+
+  .double-section {
+    .content-wrapper {
+      .flex {
+        .left-column {
+          width: 73%;
+          margin-right: 2.5%;
+          .wrapper {
+            .choice-block {
+              .h3-small {
+                margin-top: 0px;
+              }
+              .main-post {
+                .post-grid {
+                  display: flex;
+                  margin-bottom: 20px;
+                  justify-content: flex-start;
+                  flex-wrap: wrap;
+                  .img-link {
+                    overflow: hidden;
+                    width: 47%;
+                    margin-right: 2.5%;
+                    img {
+                      @include img-scale-hover();
+                      width: 100%;
+                      height: 100%;
+                      object-fit: cover;
+                    }
+                  }
+                  .text-box {
+                    flex: 1;
+                    border-bottom: 1px solid #cbcbcb;
+                    .category-link {
+                    }
+
+                    div {
+                      margin-top: 10px;
+                      .post-preview {
+                      }
+                      .subtitle-gray {
+                        margin-top: 10px;
+                        margin-bottom: 10px;
+                      }
+                      .author-box {
+                      }
+                    }
+                  }
+                }
+              }
+              .sub-post {
+                margin-top: 15px;
+                & > .flex {
+                  align-items: flex-start;
+                  column-gap: 15px;
+                  .list-item {
+                    flex: 1;
+                    div {
+                      div {
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            .latest-block {
+            }
+          }
+        }
+        .right-content {
         }
       }
     }

@@ -7,6 +7,14 @@
 /*========== Margenes Bottom ==========*/
 /*========== z index ==========*/
 /* Responsive typography */
+/*=============== REUSABLE CSS CLASSES ===============*/
+img.img-scale-hover {
+  transition: transform 0.3s ease;
+}
+img.img-scale-hover:hover {
+  transform: scale(1.05);
+}
+
 /*=============== BASE ===============*/
 * {
   margin: 0;
@@ -229,14 +237,37 @@ div.author-box a:hover {
   color: #f4a074 !important;
 }
 
-/*=============== REUSABLE CSS CLASSES ===============*/
-img.img-scale-hover {
-  transition: transform 0.3s ease;
+.post-grid {
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
-img.img-scale-hover:hover {
+.post-grid .img-link {
+  height: 235px;
+  overflow: hidden;
+  margin-right: 2.5%;
+}
+.post-grid .img-link img {
+  transition: transform 0.3s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.post-grid .img-link img:hover {
   transform: scale(1.05);
 }
-
+.post-grid .text-box {
+  flex: 1;
+  border-bottom: 1px solid #cbcbcb;
+}
+.post-grid .text-box div {
+  margin-top: 10px;
+}
+.post-grid .text-box div .subtitle-gray {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 /*=============== ANIMATION ===============*/
 @keyframes rotate {
   from {
@@ -1117,6 +1148,9 @@ img.img-scale-hover:hover {
   font-size: 2rem;
   color: #f4a074;
 }
+.content .double-section .content-wrapper .flex {
+  align-items: stretch;
+}
 .content .double-section .content-wrapper .flex .left-column {
   width: 73%;
   margin-right: 2.5%;
@@ -1124,36 +1158,8 @@ img.img-scale-hover:hover {
 .content .double-section .content-wrapper .flex .left-column .wrapper .choice-block .h3-small {
   margin-top: 0px;
 }
-.content .double-section .content-wrapper .flex .left-column .wrapper .choice-block .main-post .post-grid {
-  display: flex;
-  margin-bottom: 20px;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-}
 .content .double-section .content-wrapper .flex .left-column .wrapper .choice-block .main-post .post-grid .img-link {
-  overflow: hidden;
   width: 47%;
-  margin-right: 2.5%;
-}
-.content .double-section .content-wrapper .flex .left-column .wrapper .choice-block .main-post .post-grid .img-link img {
-  transition: transform 0.3s ease;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.content .double-section .content-wrapper .flex .left-column .wrapper .choice-block .main-post .post-grid .img-link img:hover {
-  transform: scale(1.05);
-}
-.content .double-section .content-wrapper .flex .left-column .wrapper .choice-block .main-post .post-grid .text-box {
-  flex: 1;
-  border-bottom: 1px solid #cbcbcb;
-}
-.content .double-section .content-wrapper .flex .left-column .wrapper .choice-block .main-post .post-grid .text-box div {
-  margin-top: 10px;
-}
-.content .double-section .content-wrapper .flex .left-column .wrapper .choice-block .main-post .post-grid .text-box div .subtitle-gray {
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
 .content .double-section .content-wrapper .flex .left-column .wrapper .choice-block .sub-post {
   margin-top: 15px;
@@ -1164,6 +1170,31 @@ img.img-scale-hover:hover {
 }
 .content .double-section .content-wrapper .flex .left-column .wrapper .choice-block .sub-post > .flex .list-item {
   flex: 1;
+}
+.content .double-section .content-wrapper .flex .left-column .wrapper .latest-block {
+  margin-top: 35px;
+}
+.content .double-section .content-wrapper .flex .left-column .wrapper .latest-block .h3-small {
+  margin-top: 0px;
+}
+.content .double-section .content-wrapper .flex .left-column .wrapper .latest-block .list-post .post-grid .img-link {
+  width: 43%;
+}
+.content .double-section .content-wrapper .flex .left-column .wrapper .latest-block .sub-post {
+  margin-top: 15px;
+}
+.content .double-section .content-wrapper .flex .left-column .wrapper .latest-block .sub-post > .flex {
+  align-items: flex-start;
+  column-gap: 15px;
+}
+.content .double-section .content-wrapper .flex .left-column .wrapper .latest-block .sub-post > .flex .list-item {
+  flex: 1;
+}
+.content .double-section .content-wrapper .flex .right-column {
+  position: relative;
+  flex: 1;
+  background: url(assets/images/gallery2.png) no-repeat center;
+  background-size: cover;
 }
 
 /*# sourceMappingURL=style.css.map */

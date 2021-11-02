@@ -69,6 +69,70 @@ $z-fixed: 100;
   }
 }
 
+/*=============== REUSABLE CSS CLASSES ===============*/
+@mixin img-scale-hover {
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+img.img-scale-hover {
+  @include img-scale-hover();
+}
+
+@mixin flex-item-center-row {
+  @include flex-item-center();
+  flex-direction: row;
+}
+
+@mixin flex-item-center-column {
+  @include flex-item-center();
+  flex-direction: column;
+}
+
+@mixin flex-item-center {
+  display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+}
+
+@mixin base-container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin hover-rotate-button {
+  transform: rotate(0);
+  transition: transform 0.5s ease;
+
+  &:hover {
+    transform: rotate(180deg);
+  }
+}
+
+@mixin show-hide-transition {
+  &.show {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+@mixin absolute-full-size {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 /*=============== BASE ===============*/
 
 * {
@@ -309,68 +373,40 @@ div.author-box {
     }
   }
 }
-/*=============== REUSABLE CSS CLASSES ===============*/
-@mixin img-scale-hover {
-  transition: transform 0.3s ease;
-  &:hover {
-    transform: scale(1.05);
-  }
-}
-
-img.img-scale-hover {
-  @include img-scale-hover();
-}
-
-@mixin flex-item-center-row {
-  @include flex-item-center();
-  flex-direction: row;
-}
-
-@mixin flex-item-center-column {
-  @include flex-item-center();
-  flex-direction: column;
-}
-
-@mixin flex-item-center {
+.post-grid {
   display: flex;
-  justify-content: center;
-  -webkit-justify-content: center;
-  align-items: center;
-  -webkit-align-items: center;
-}
-
-@mixin base-container {
-  width: 100%;
-  max-width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@mixin hover-rotate-button {
-  transform: rotate(0);
-  transition: transform 0.5s ease;
-
-  &:hover {
-    transform: rotate(180deg);
+  margin-bottom: 20px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  .img-link {
+    height: 235px;
+    overflow: hidden;
+    margin-right: 2.5%;
+    img {
+      @include img-scale-hover();
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
-}
+  .text-box {
+    flex: 1;
+    border-bottom: 1px solid #cbcbcb;
+    .category-link {
+    }
 
-@mixin show-hide-transition {
-  &.show {
-    opacity: 1 !important;
-    visibility: visible !important;
+    div {
+      margin-top: 10px;
+      .post-preview {
+      }
+      .subtitle-gray {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      .author-box {
+      }
+    }
   }
-  visibility: hidden;
-  opacity: 0;
-  transition: all 0.3s ease;
-}
-
-@mixin absolute-full-size {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
 }
 /*=============== ANIMATION ===============*/
 @keyframes rotate {
@@ -1293,6 +1329,7 @@ img.img-scale-hover {
   .double-section {
     .content-wrapper {
       .flex {
+        align-items: stretch;
         .left-column {
           width: 73%;
           margin-right: 2.5%;
@@ -1303,34 +1340,19 @@ img.img-scale-hover {
               }
               .main-post {
                 .post-grid {
-                  display: flex;
-                  margin-bottom: 20px;
-                  justify-content: flex-start;
-                  flex-wrap: wrap;
                   .img-link {
-                    overflow: hidden;
                     width: 47%;
-                    margin-right: 2.5%;
                     img {
-                      @include img-scale-hover();
-                      width: 100%;
-                      height: 100%;
-                      object-fit: cover;
                     }
                   }
                   .text-box {
-                    flex: 1;
-                    border-bottom: 1px solid #cbcbcb;
                     .category-link {
                     }
 
                     div {
-                      margin-top: 10px;
                       .post-preview {
                       }
                       .subtitle-gray {
-                        margin-top: 10px;
-                        margin-bottom: 10px;
                       }
                       .author-box {
                       }
@@ -1354,10 +1376,54 @@ img.img-scale-hover {
               }
             }
             .latest-block {
+              margin-top: 35px;
+              .h3-small {
+                margin-top: 0px;
+              }
+              .list-post {
+                .post-grid {
+                  .img-link {
+                    width: 43%;
+                    img {
+                    }
+                  }
+                  .text-box {
+                    .category-link {
+                    }
+
+                    div {
+                      .post-preview {
+                      }
+                      .subtitle-gray {
+                      }
+                      .author-box {
+                      }
+                    }
+                  }
+                }
+              }
+              .sub-post {
+                margin-top: 15px;
+                & > .flex {
+                  align-items: flex-start;
+                  column-gap: 15px;
+                  .list-item {
+                    flex: 1;
+                    div {
+                      div {
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }
-        .right-content {
+        .right-column {
+          position: relative;
+          flex: 1;
+          background: url(assets/images/gallery2.png) no-repeat center;
+          background-size: cover;
         }
       }
     }

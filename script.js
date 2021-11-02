@@ -57,3 +57,4 @@ var tagPostSwiper = new Swiper(".tag-swiper", {
         disableOnInteraction: false,
     },
 });
+// Parallax

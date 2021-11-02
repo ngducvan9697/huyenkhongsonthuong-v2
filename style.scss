@@ -1422,8 +1422,18 @@ div.author-box {
         .right-column {
           position: relative;
           flex: 1;
-          background: url(assets/images/gallery2.png) no-repeat center;
-          background-size: cover;
+          overflow: hidden;
+
+          .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("assets/images/su.jpg") no-repeat top center;
+            background-size: auto 75%;
+            z-index: -1;
+          }
         }
       }
     }

@@ -1327,6 +1327,7 @@ div.author-box {
   }
 
   .double-section {
+    overflow: unset;
     .content-wrapper {
       .flex {
         align-items: stretch;
@@ -1422,17 +1423,108 @@ div.author-box {
         .right-column {
           position: relative;
           flex: 1;
-          overflow: hidden;
+          padding-bottom: 20px;
 
-          .parallax-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("assets/images/su.jpg") no-repeat top center;
-            background-size: auto 75%;
-            z-index: -1;
+          .parallax {
+            position: sticky;
+            top: 120px;
+            height: max-content;
+            width: 100%;
+            @include flex-item-center-column();
+            justify-content: flex-start;
+
+            .bg {
+              width: 100%;
+              height: 600px;
+              background: url("assets/images/su@10x.png") no-repeat top center;
+              background-size: cover;
+              z-index: -1;
+            }
+            .instruction {
+              margin-top: 20px;
+              @include flex-item-center-column();
+
+              .h3-small {
+              }
+              p.description {
+                text-align: justify;
+                letter-spacing: 1px;
+                line-height: 20px;
+              }
+              .social-link-list {
+                margin-top: 10px;
+                @include flex-item-center-column();
+                width: 100%;
+                .social-link-item {
+                  @include flex-item-center-row();
+                  justify-content: flex-start !important;
+                  border-bottom: 1px solid #cbcbcb;
+                  height: 50px;
+                  width: 100%;
+                  &:hover {
+                    .social-text-box {
+                      a {
+                        color: $primary-color;
+                      }
+
+                      .top-box {
+                        transform: translate3d(0px, -20px, 0px) scale3d(1, 1, 1)
+                          rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+                          skew(0deg, 0deg);
+                        transform-style: preserve-3d;
+                      }
+                      .bottom-box {
+                        transform: translate3d(0px, -20px, 0px) scale3d(1, 1, 1)
+                          rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+                          skew(0deg, 0deg);
+                        transform-style: preserve-3d;
+                      }
+                    }
+                  }
+                  i {
+                    margin: 0 10px;
+                    width: 50px;
+                    color: $primary-color;
+                    font-size: 2.5rem;
+                  }
+                  .social-text-box {
+                    display: flex;
+                    flex-direction: column;
+                    overflow: hidden;
+                    height: 20px;
+                    -webkit-box-orient: vertical;
+                    -webkit-box-direction: normal;
+
+                    a {
+                      color: rgb(27, 34, 44);
+                      transition: color 200ms ease;
+                    }
+
+                    .top-box,
+                    .bottom-box {
+                      position: relative;
+                      display: inline-block;
+                      height: 20px;
+                      transition: transform 0.3s ease;
+                      will-change: transform;
+                    }
+
+                    .top-box {
+                      transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1)
+                        rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+                        skew(0deg, 0deg);
+                      transform-style: preserve-3d;
+                    }
+                    .bottom-box {
+                      transform: translate3d(0px, 20px, 0px) scale3d(1, 1, 1)
+                        rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+                        skew(0deg, 0deg);
+                      transform-style: preserve-3d;
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }

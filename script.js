@@ -57,4 +57,25 @@ var tagPostSwiper = new Swiper(".tag-swiper", {
         disableOnInteraction: false,
     },
 });
+var tagPostSwiper = new Swiper(".list-poem", {
+    loop: true,
+    direction: "vertical",
+    // mousewheel: true,
+    // sensitivity: 0.5,
+    // thresholdDelta: 1,
+    autoplay: {
+        delay: 10000,
+        disableOnInteraction: false,
+    },
+});
 // Parallax
+var imagePoem = document.getElementsByClassName("bg-parallax-poem");
+var imageIntroduce = document.getElementsByClassName("bg-parallax-intro");
+new simpleParallax(imagePoem, {
+    delay: 0.6,
+    transition: "cubic-bezier(0,0,0,4)",
+});
+new simpleParallax(imageIntroduce, {
+    scale: 1.5,
+    transition: "cubic-bezier(0,0,0,4)",
+});

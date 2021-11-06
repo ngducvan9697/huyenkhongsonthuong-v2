@@ -72,6 +72,7 @@ $z-fixed: 100;
 /*=============== REUSABLE CSS CLASSES ===============*/
 @mixin img-scale-hover {
   transition: transform 0.3s ease;
+  transform-origin: center;
   &:hover {
     transform: scale(1.05);
   }
@@ -131,6 +132,26 @@ img.img-scale-hover {
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+.black-overlay {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 1),
+      rgba(0, 0, 0, 1) 15%,
+      rgba(0, 0, 0, 0.7) 20%,
+      rgba(0, 0, 0, 0) 30%,
+      rgba(0, 0, 0, 0) 40%
+    );
+  }
 }
 
 /*=============== BASE ===============*/
@@ -227,6 +248,42 @@ a {
   }
 }
 
+.play-button {
+  &.large {
+    width: 85px;
+    height: 50px;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-size: 19px;
+  }
+
+  &.small {
+    width: 40px;
+    height: 25px;
+    margin-top: 10px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    background-size: 11px;
+  }
+
+  &:hover {
+    transform: scale(1.03);
+  }
+
+  border-radius: 2.5px;
+  background-color: rgba(67, 195, 218, 0.9);
+  background-image: url(assets/symbols/triagle.svg);
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+
 p {
   letter-spacing: -0.35px;
   &.subtitle-gray {
@@ -248,6 +305,12 @@ button {
   cursor: pointer;
   font-family: $body-font;
   font-size: $normal-font-size;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .relative {
@@ -378,15 +441,18 @@ div.author-box {
   margin-bottom: 20px;
   justify-content: flex-start;
   flex-wrap: wrap;
+
   .img-link {
     height: 235px;
     overflow: hidden;
     margin-right: 2.5%;
+    &:hover {
+      .play-button {
+        transform: scale(1.03);
+      }
+    }
     img {
       @include img-scale-hover();
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
     }
   }
   .text-box {
@@ -642,9 +708,6 @@ div.author-box {
                             transition: opacity 0.5s 0.2s ease;
 
                             img {
-                              width: 100%;
-                              height: 100%;
-                              object-fit: cover;
                             }
                           }
 
@@ -1158,9 +1221,6 @@ div.author-box {
                   align-items: flex-end;
                   border-radius: 5px 5px 0px 0px;
                   img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
                   }
                 }
                 .bottom-slide {
@@ -1198,28 +1258,9 @@ div.author-box {
   .featured-post {
     .content-wrapper {
       img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
         transition: transform 0.3s ease;
       }
       .relative.full {
-        &::after {
-          content: "";
-          position: absolute;
-          left: 0%;
-          top: 0%;
-          right: 0%;
-          bottom: 0%;
-          background-image: linear-gradient(
-            to top,
-            rgba(0, 0, 0, 1),
-            rgba(0, 0, 0, 1) 15%,
-            rgba(0, 0, 0, 0.7) 20%,
-            rgba(0, 0, 0, 0) 30%,
-            rgba(0, 0, 0, 0) 40%
-          );
-        }
         &:hover {
           & img {
             transform: scale(1.05);
@@ -1329,7 +1370,7 @@ div.author-box {
   .double-section {
     overflow: unset;
     .content-wrapper {
-      .flex {
+      & > .flex {
         align-items: stretch;
         .left-column {
           width: 73%;
@@ -1433,12 +1474,12 @@ div.author-box {
             @include flex-item-center-column();
             justify-content: flex-start;
 
-            .bg {
-              width: 100%;
-              height: 600px;
-              background: url("assets/images/su@10x.png") no-repeat top center;
-              background-size: cover;
-              z-index: -1;
+            .simpleParallax.simple-parallax-initialized {
+              height: 400px;
+            }
+
+            .bg-parallax-intro {
+              filter: grayscale(1);
             }
             .instruction {
               margin-top: 20px;
@@ -1523,6 +1564,91 @@ div.author-box {
                     }
                   }
                 }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .media-section {
+    background-color: #e4edee;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    perspective: 3px;
+    .content-wrapper {
+      & > .flex {
+        align-items: stretch;
+        .left-column {
+          width: 73%;
+          margin-right: 2.5%;
+          .main-video-wrapper {
+            .post-grid {
+              .img-link {
+                position: relative;
+                width: 47%;
+                img {
+                  &:hover {
+                    transform: unset;
+                  }
+                }
+              }
+            }
+          }
+
+          .list-video-wrapper {
+            column-gap: 10px;
+            .video-item {
+              flex: 1;
+              .relative {
+                width: 100%;
+                img {
+                  height: 170px;
+                }
+                .absolute-text-box {
+                  position: absolute;
+                  bottom: 0;
+                  top: auto;
+                  padding: unset 15px 15px 15px;
+                }
+              }
+            }
+          }
+        }
+        .right-column {
+          position: relative;
+          flex: 1;
+          overflow: hidden;
+          transform-style: inherit;
+          .simpleParallax.simple-parallax-initialized {
+            height: 100% !important;
+          }
+          .bg-parallax-poem {
+            filter: grayscale(1) blur(1px) contrast(0.5);
+          }
+          .absulute-center-content-list {
+            @include flex-item-center-column();
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            .poem-item {
+              width: 100%;
+              height: 100%;
+              background-color: transparent;
+              text-align: center;
+              color: #fff;
+              @include flex-item-center();
+              p {
+                width: 100%;
+                padding: 0 10px;
+                &::first-letter {
+                  font-size: 30px;
+                }
+                line-height: 1.2em;
+                font-size: 20px;
+                font-weight: lighter;
               }
             }
           }

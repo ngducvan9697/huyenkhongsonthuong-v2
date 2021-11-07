@@ -16,6 +16,7 @@ function attachToggleClassForElement(objectAttach, objectDestination, affectClas
         });
     }
 }
+attachToggleClassForElement(".menu-btn", ".nav-menu", "show");
 attachToggleClassForElement(".category-toogle", ".category-dropdown", "show");
 attachToggleClassForElement(".mail-icon", ".newsletter-container", "show");
 attachToggleClassForElement(".newsletter-container .close-element", ".newsletter-container", "show");
@@ -68,6 +69,15 @@ var tagPostSwiper = new Swiper(".list-poem", {
         disableOnInteraction: false,
     },
 });
+var tagPostSwiper = new Swiper(".gallery-swiper", {
+    loop: true,
+    slidesPerView: 4,
+    slidesPerGroup: 1,
+    autoplay: {
+        delay: 10000,
+        disableOnInteraction: false,
+    },
+});
 // Parallax
 var imagePoem = document.getElementsByClassName("bg-parallax-poem");
 var imageIntroduce = document.getElementsByClassName("bg-parallax-intro");
@@ -79,3 +89,32 @@ new simpleParallax(imageIntroduce, {
     scale: 1.5,
     transition: "cubic-bezier(0,0,0,4)",
 });
+// Gallery
+//
+var lastScrollTop = 0;
+var navigationElement = document.querySelector(".navigation");
+function hideNavigation() {
+    if (navigationElement && navigationElement.dataset.isShow === "true") {
+        navigationElement.style.transform = "translateY(-100%)";
+        navigationElement.dataset.isShow = "false";
+    }
+}
+function showNavigation() {
+    if (navigationElement && navigationElement.dataset.isShow === "false") {
+        navigationElement.style.transform = "translateY(0px)";
+        navigationElement.dataset.isShow = "true";
+    }
+}
+// element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
+window.addEventListener("scroll", function () {
+    // or window.addEventListener("scroll"....
+    var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+    if (st > lastScrollTop) {
+        hideNavigation();
+        // downscroll code
+    }
+    else {
+        showNavigation();
+    }
+    lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+}, false);

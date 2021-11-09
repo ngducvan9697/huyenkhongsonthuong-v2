@@ -16,7 +16,7 @@ function attachToggleClassForElement(objectAttach, objectDestination, affectClas
         });
     }
 }
-attachToggleClassForElement(".menu-btn", ".nav-menu", "show");
+attachToggleClassForElement(".menu-btn", ".navbar", "show");
 attachToggleClassForElement(".category-toogle", ".category-dropdown", "show");
 attachToggleClassForElement(".mail-icon", ".newsletter-container", "show");
 attachToggleClassForElement(".newsletter-container .close-element", ".newsletter-container", "show");

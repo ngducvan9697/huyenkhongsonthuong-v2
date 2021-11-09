@@ -578,8 +578,7 @@ div.author-box a:hover {
   flex-direction: row;
 }
 .content .navigation .navbar-content-wrapper .nav-menu .left-nav-menu .category-dropdown.show .intro-categories > div:first-child {
-  transform: translateY(0%) !important;
-  transition: all 0.3s ease;
+  max-height: 3000px !important;
 }
 .content .navigation .navbar-content-wrapper .nav-menu .left-nav-menu .category-dropdown.show .intro-categories > div:first-child .intro-category-item .circular-link-block,
 .content .navigation .navbar-content-wrapper .nav-menu .left-nav-menu .category-dropdown.show .intro-categories > div:first-child .intro-category-item .expand-flex {
@@ -622,8 +621,8 @@ div.author-box a:hover {
   grid-auto-rows: 1fr;
   background-color: transparent;
   grid-gap: 7px;
-  transition: all 0.3s ease;
-  transform: translateY(-100%);
+  max-height: 0;
+  transition: max-height 0.3s ease !important;
 }
 .content .navigation .navbar-content-wrapper .nav-menu .left-nav-menu .category-dropdown-list .category-dropdown-container .expand-align-center .intro-categories > div:first-child .intro-category-item {
   height: 100%;
@@ -641,7 +640,7 @@ div.author-box a:hover {
   height: 65px;
   border-radius: 50%;
   opacity: 0;
-  transition: opacity 0.5s 0.2s ease;
+  transition: opacity 0.3s ease;
 }
 .content .navigation .navbar-content-wrapper .nav-menu .left-nav-menu .category-dropdown-list .category-dropdown-container .expand-align-center .intro-categories > div:first-child .intro-category-item .expand-flex {
   display: flex;
@@ -649,7 +648,7 @@ div.author-box a:hover {
   height: 100%;
   flex: 1;
   opacity: 0;
-  transition: opacity 0.5s 0.2s ease;
+  transition: opacity 0.3s ease;
 }
 .content .navigation .navbar-content-wrapper .nav-menu .left-nav-menu .category-dropdown-list .category-dropdown-container .expand-align-center .intro-categories > div:first-child .intro-category-item .expand-flex > div:first-child .flex {
   display: flex;
@@ -1556,10 +1555,23 @@ div.author-box a:hover {
     width: unset !important;
   }
 
-  .content .navigation .navbar-content-wrapper .nav-menu {
-    height: 0 !important;
-    overflow: scroll;
+  .content .navigation .navbar.show .navbar-content-wrapper .nav-menu {
+    height: 100vh !important;
+  }
+  .content .navigation .navbar.show .navbar-content-wrapper .nav-menu .left-nav-menu, .content .navigation .navbar.show .navbar-content-wrapper .nav-menu .right-nav-menu {
+    opacity: 1 !important;
+    transition: opacity 0.3s 0.1s ease;
+  }
+  .content .navigation .navbar.show .menu-btn {
+    border-bottom: 1px solid #fff;
+  }
+  .content .navigation .navbar.show .menu-btn i {
+    color: #002736 !important;
+  }
+  .content .navigation .navbar .navbar-content-wrapper .nav-menu {
     all: unset;
+    height: 0 !important;
+    overflow: auto;
     position: absolute;
     left: 0;
     top: 100%;
@@ -1569,28 +1581,24 @@ div.author-box a:hover {
     border-top: 1px solid #0000000f;
     transition: height 0.3s ease;
   }
-  .content .navigation .navbar-content-wrapper .nav-menu.show {
-    height: 100vh !important;
-  }
-  .content .navigation .navbar-content-wrapper .nav-menu.show .left-nav-menu, .content .navigation .navbar-content-wrapper .nav-menu.show .right-nav-menu {
-    opacity: 1 !important;
-    transition: opacity 0.3s 0.1s ease;
-  }
-  .content .navigation .navbar-content-wrapper .nav-menu .left-nav-menu, .content .navigation .navbar-content-wrapper .nav-menu .right-nav-menu {
+  .content .navigation .navbar .navbar-content-wrapper .nav-menu .left-nav-menu, .content .navigation .navbar .navbar-content-wrapper .nav-menu .right-nav-menu {
     opacity: 0;
     flex-direction: column;
     align-items: flex-start;
     transition: opacity 0.3s ease;
   }
-  .content .navigation .navbar-content-wrapper .nav-menu .category-dropdown .category-dropdown-list {
+  .content .navigation .navbar .navbar-content-wrapper .nav-menu .category-dropdown .category-dropdown-list {
     position: relative;
     margin-top: 0;
   }
-  .content .navigation .navbar-content-wrapper .nav-menu .category-dropdown .category-dropdown-list .intro-categories div {
-    height: 0;
+}
+@media screen and (max-width: 767px) {
+  .content .navigation .navbar-content-wrapper .nav-menu .left-nav-menu .category-dropdown-list .category-dropdown-container .expand-align-center .intro-categories > div:first-child {
+    display: flex;
+    flex-wrap: wrap;
   }
-  .content .navigation .navbar-content-wrapper .nav-menu .category-dropdown.show .intro-categories div {
-    height: fit-content;
+  .content .navigation .navbar-content-wrapper .nav-menu .left-nav-menu .category-dropdown-list .category-dropdown-container .expand-align-center .intro-categories > div:first-child .intro-category-item {
+    width: 100%;
   }
 }
 

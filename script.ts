@@ -24,7 +24,7 @@ function attachToggleClassForElement(
   }
 }
 
-attachToggleClassForElement(".menu-btn", ".nav-menu", "show");
+attachToggleClassForElement(".menu-btn", ".navbar", "show");
 attachToggleClassForElement(".category-toogle", ".category-dropdown", "show");
 
 attachToggleClassForElement(".mail-icon", ".newsletter-container", "show");

@@ -577,11 +577,9 @@ div.author-box a:hover {
   -webkit-align-items: center;
   flex-direction: row;
 }
-.content .navigation .navbar-content-wrapper .nav-menu .left-nav-menu .category-dropdown.show .category-dropdown-list {
-  visibility: visible;
-}
 .content .navigation .navbar-content-wrapper .nav-menu .left-nav-menu .category-dropdown.show .intro-categories > div:first-child {
   transform: translateY(0%) !important;
+  transition: all 0.3s ease;
 }
 .content .navigation .navbar-content-wrapper .nav-menu .left-nav-menu .category-dropdown.show .intro-categories > div:first-child .intro-category-item .circular-link-block,
 .content .navigation .navbar-content-wrapper .nav-menu .left-nav-menu .category-dropdown.show .intro-categories > div:first-child .intro-category-item .expand-flex {
@@ -608,7 +606,6 @@ div.author-box a:hover {
   outline-offset: 15px;
 }
 .content .navigation .navbar-content-wrapper .nav-menu .left-nav-menu .category-dropdown-list {
-  visibility: hidden;
   position: absolute;
   left: 0;
   top: 0;
@@ -1560,8 +1557,7 @@ div.author-box a:hover {
   }
 
   .content .navigation .navbar-content-wrapper .nav-menu {
-    transform: translateY(-100%) !important;
-    visibility: hidden !important;
+    height: 0 !important;
     overflow: scroll;
     all: unset;
     position: absolute;
@@ -1571,15 +1567,20 @@ div.author-box a:hover {
     display: block;
     width: 100vw;
     border-top: 1px solid #0000000f;
-    transition: transform 0.3s ease;
+    transition: height 0.3s ease;
   }
   .content .navigation .navbar-content-wrapper .nav-menu.show {
-    transform: translateY(0) !important;
-    visibility: visible !important;
+    height: 100vh !important;
+  }
+  .content .navigation .navbar-content-wrapper .nav-menu.show .left-nav-menu, .content .navigation .navbar-content-wrapper .nav-menu.show .right-nav-menu {
+    opacity: 1 !important;
+    transition: opacity 0.3s 0.1s ease;
   }
   .content .navigation .navbar-content-wrapper .nav-menu .left-nav-menu, .content .navigation .navbar-content-wrapper .nav-menu .right-nav-menu {
+    opacity: 0;
     flex-direction: column;
     align-items: flex-start;
+    transition: opacity 0.3s ease;
   }
   .content .navigation .navbar-content-wrapper .nav-menu .category-dropdown .category-dropdown-list {
     position: relative;

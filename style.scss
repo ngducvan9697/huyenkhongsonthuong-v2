@@ -711,10 +711,10 @@ div.author-box {
 
             .category-dropdown {
               &.show .category-dropdown-list {
-                visibility: visible;
               }
               &.show .intro-categories > div:first-child {
                 transform: translateY(0%) !important;
+                transition: all 0.3s ease;
 
                 & .intro-category-item {
                   .circular-link-block,
@@ -748,7 +748,6 @@ div.author-box {
                 }
               }
               &-list {
-                visibility: hidden;
                 position: absolute;
                 left: 0;
                 top: 0;
@@ -1842,11 +1841,14 @@ div.author-box {
   }
 
   .content .navigation .navbar-content-wrapper .nav-menu {
-    transform: translateY(-100%) !important;
-    visibility: hidden !important;
+    height: 0 !important;
     &.show {
-      transform: translateY(0) !important;
-      visibility: visible !important;
+      height: 100vh !important;
+      & .left-nav-menu,
+      & .right-nav-menu {
+        opacity: 1 !important;
+        transition: opacity 0.3s 0.1s ease;
+      }
     }
     overflow: scroll;
     all: unset;
@@ -1857,11 +1859,13 @@ div.author-box {
     display: block;
     width: 100vw;
     border-top: 1px solid #0000000f;
-    transition: transform 0.3s ease;
+    transition: height 0.3s ease;
     & .left-nav-menu,
     & .right-nav-menu {
+      opacity: 0;
       flex-direction: column;
       align-items: flex-start;
+      transition: opacity 0.3s ease;
     }
     .category-dropdown {
       .category-dropdown-list {

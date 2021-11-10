@@ -443,7 +443,7 @@ div.author-box {
   flex-wrap: wrap;
 
   .img-link {
-    height: 235px;
+    min-height: 235px;
     overflow: hidden;
     margin-right: 2.5%;
     &:hover {
@@ -1554,6 +1554,7 @@ div.author-box {
             .bg-parallax-intro {
               object-fit: contain;
               filter: grayscale(1);
+              max-width: 500px;
             }
             .instruction {
               margin-top: 20px;
@@ -1978,6 +1979,17 @@ div.author-box {
     .swiper-slide
     .list-post {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .content .double-section .content-wrapper > .flex .left-column,
+  .content .media-section .content-wrapper > .flex .left-column {
+    width: 100%;
+    margin: 0;
+  }
+
+  .content .media-section .content-wrapper > .flex .right-column {
+    flex: unset;
+    margin-top: 20px;
   }
 }
 

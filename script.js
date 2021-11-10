@@ -33,6 +33,11 @@ var headerSwiper = new Swiper(".main-slider-container", {
         delay: 10000,
         disableOnInteraction: false,
     },
+    on: {
+        resize: function () {
+            headerSwiper.allowTouchMove = window.innerWidth <= 991;
+        },
+    },
 });
 var miniSwiper = new Swiper(".mini-slider-container", {
     loop: true,
@@ -58,7 +63,7 @@ var tagPostSwiper = new Swiper(".tag-swiper", {
         disableOnInteraction: false,
     },
 });
-var tagPostSwiper = new Swiper(".list-poem", {
+var poemSwiper = new Swiper(".list-poem", {
     loop: true,
     direction: "vertical",
     // mousewheel: true,
@@ -69,7 +74,7 @@ var tagPostSwiper = new Swiper(".list-poem", {
         disableOnInteraction: false,
     },
 });
-var tagPostSwiper = new Swiper(".gallery-swiper", {
+var gallerySwiper = new Swiper(".gallery-swiper", {
     loop: true,
     slidesPerView: 4,
     slidesPerGroup: 1,
@@ -86,7 +91,9 @@ new simpleParallax(imagePoem, {
     transition: "cubic-bezier(0,0,0,4)",
 });
 new simpleParallax(imageIntroduce, {
-    scale: 1.5,
+    delay: 0.3,
+    scale: 1.3,
+    overflow: true,
     transition: "cubic-bezier(0,0,0,4)",
 });
 // Gallery
@@ -118,3 +125,4 @@ window.addEventListener("scroll", function () {
     }
     lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
 }, false);
+window.addEventListener("resize", mainReponsive);

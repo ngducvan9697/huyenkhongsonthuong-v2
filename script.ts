@@ -147,14 +147,14 @@ var navigationElement: HTMLElement = document.querySelector(".navigation")!;
 
 function hideNavigation() {
   if (navigationElement && navigationElement.dataset.isShow === "true") {
-    navigationElement.style.transform = "translateY(-100%)";
+    navigationElement.style.top = "-125px";
     navigationElement.dataset.isShow = "false";
   }
 }
 
 function showNavigation() {
   if (navigationElement && navigationElement.dataset.isShow === "false") {
-    navigationElement.style.transform = "translateY(0px)";
+    navigationElement.style.top = "0%";
     navigationElement.dataset.isShow = "true";
   }
 }

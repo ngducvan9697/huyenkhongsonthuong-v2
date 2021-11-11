@@ -146,9 +146,10 @@ img.img-scale-hover {
     background-image: linear-gradient(
       to top,
       rgba(0, 0, 0, 1),
-      rgba(0, 0, 0, 1) 15%,
-      rgba(0, 0, 0, 0.7) 20%,
-      rgba(0, 0, 0, 0) 30%,
+      rgba(0, 0, 0, 1) 5%,
+      rgba(0, 0, 0, 0.9) 15%,
+      rgba(0, 0, 0, 0.4) 25%,
+      rgba(0, 0, 0, 0.1) 30%,
       rgba(0, 0, 0, 0) 40%
     );
   }
@@ -605,7 +606,7 @@ div.author-box {
     right: 0%;
     bottom: auto;
     z-index: 50;
-    transition: transform 0.3s ease;
+    transition: top 0.3s ease;
     .announcement {
       @include flex-item-center-column();
       padding-right: 20px;
@@ -1340,41 +1341,31 @@ div.author-box {
           }
         }
       }
-      .flex {
-        .flex-full-width img {
-          height: 390px;
-        }
-        column-gap: 1.3%;
-        .intro-item-left {
-          display: flex;
-          width: 48.7%;
-          .flex-full-width {
-            .relative.full {
-              .absolute-text-box {
-                .category-description {
-                  div {
-                    margin-top: 10px;
-                    p {
-                      margin-bottom: 10px;
-                      letter-spacing: -0.35px;
-                      color: #fff;
-                    }
-                  }
-                }
-              }
-            }
+      .grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-rows: 390px;
+        grid-template-areas: "main sub-1 sub-2";
+        gap: 10px;
+        .relative.full {
+          &:nth-child(1) {
+            grid-area: main;
           }
-        }
-        .intro-items-right {
-          display: flex;
-          flex: 1;
-          .intro-half {
-            display: flex;
-            width: 100%;
-            .flex-full-width {
-              justify-content: space-between;
-              .intro-item {
-                width: 48.6%;
+          &:nth-child(2) {
+            grid-area: sub-1;
+          }
+          &:nth-child(3) {
+            grid-area: sub-2;
+          }
+          .absolute-text-box {
+            .category-description {
+              div {
+                margin-top: 10px;
+                p {
+                  margin-bottom: 10px;
+                  letter-spacing: -0.35px;
+                  color: #fff;
+                }
               }
             }
           }
@@ -1944,6 +1935,18 @@ div.author-box {
     align-items: flex-start;
     -webkit-align-items: flex-start;
   }
+
+  .content .featured-post .content-wrapper .grid {
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-areas:
+      "main sub-1 sub-1"
+      "main sub-2 sub-2";
+    grid-template-rows: 200px 200px;
+  }
+
+  .content .navigation .search-bg .search-box {
+    width: 60%;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -1969,20 +1972,6 @@ div.author-box {
     & .intro-category-item {
       width: 100%;
     }
-  }
-
-  .content .featured-post .content-wrapper .flex .intro-item-left {
-    width: 100%;
-  }
-  .content
-    .featured-post
-    .content-wrapper
-    .flex
-    .intro-items-right
-    .intro-half
-    .flex-full-width
-    .intro-item {
-    width: 50%;
   }
 
   .content
@@ -2016,6 +2005,14 @@ div.author-box {
   .content .footer .content-wrapper .footer-container .footer-column {
     width: 100%;
     margin: 0;
+  }
+
+  .content
+    .navigation
+    .newsletter-container
+    .newsletter-box
+    .newletter-column.right {
+    padding: 15px;
   }
 }
 
@@ -2068,9 +2065,6 @@ div.author-box {
     padding: 35px 10px;
   }
 
-  .content .featured-post .content-wrapper .flex .flex-full-width img {
-    height: 200px;
-  }
   .content
     .double-section
     .content-wrapper
@@ -2111,5 +2105,28 @@ div.author-box {
     .left-column
     .list-video-wrapper {
     flex-direction: column;
+  }
+
+  .content .featured-post .content-wrapper .grid {
+    grid-template-columns: auto;
+    grid-template-areas:
+      "main"
+      "sub-1"
+      "sub-2";
+  }
+
+  .content
+    .navigation
+    .newsletter-container
+    .newsletter-box
+    .newletter-column.left {
+    display: none;
+  }
+  .content .navigation .newsletter-container .newsletter-box .newletter-column {
+    width: 100%;
+  }
+
+  .content .navigation .search-bg .search-box {
+    width: 80%;
   }
 }

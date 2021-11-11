@@ -33,9 +33,12 @@ var headerSwiper = new Swiper(".main-slider-container", {
         delay: 10000,
         disableOnInteraction: false,
     },
-    on: {
-        resize: function () {
-            headerSwiper.allowTouchMove = window.innerWidth <= 991;
+    breakpoints: {
+        320: {
+            allowTouchMove: true,
+        },
+        991: {
+            allowTouchMove: false,
         },
     },
 });
@@ -77,10 +80,24 @@ var poemSwiper = new Swiper(".list-poem", {
 var gallerySwiper = new Swiper(".gallery-swiper", {
     loop: true,
     slidesPerView: 4,
-    slidesPerGroup: 1,
+    slidesPerGroup: 4,
     autoplay: {
         delay: 10000,
         disableOnInteraction: false,
+    },
+    breakpoints: {
+        320: {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+        },
+        479: {
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+        },
+        767: {
+            slidesPerView: 4,
+            slidesPerGroup: 4,
+        },
     },
 });
 // Parallax

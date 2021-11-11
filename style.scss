@@ -1341,15 +1341,15 @@ div.author-box {
         }
       }
       .flex {
+        .flex-full-width img {
+          height: 390px;
+        }
         column-gap: 1.3%;
         .intro-item-left {
           display: flex;
           width: 48.7%;
           .flex-full-width {
             .relative.full {
-              img {
-                height: 390px;
-              }
               .absolute-text-box {
                 .category-description {
                   div {
@@ -1375,9 +1375,6 @@ div.author-box {
               justify-content: space-between;
               .intro-item {
                 width: 48.6%;
-                img {
-                  height: 390px;
-                }
               }
             }
           }
@@ -1787,10 +1784,10 @@ div.author-box {
     .content-wrapper {
       .footer-container {
         display: grid;
-        grid-template-columns: min-content 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-areas:
-          "logo menu category"
-          "register social category ";
+          "logo logo menu category"
+          "register register social category ";
         grid-gap: 25px;
         .footer-column {
           grid-area: logo;
@@ -1830,6 +1827,7 @@ div.author-box {
             grid-area: social;
           }
           &:nth-child(5) {
+            min-width: 250px;
             grid-area: register;
           }
 
@@ -2068,5 +2066,50 @@ div.author-box {
 
   .content .footer {
     padding: 35px 10px;
+  }
+
+  .content .featured-post .content-wrapper .flex .flex-full-width img {
+    height: 200px;
+  }
+  .content
+    .double-section
+    .content-wrapper
+    > .flex
+    .left-column
+    .wrapper
+    .choice-block
+    .main-post
+    .post-grid
+    .img-link,
+  .content
+    .double-section
+    .content-wrapper
+    > .flex
+    .left-column
+    .wrapper
+    .latest-block
+    .list-post
+    .post-grid
+    .img-link {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .content
+    .double-section
+    .content-wrapper
+    > .flex
+    .left-column
+    .wrapper
+    .choice-block
+    .sub-post
+    > .flex,
+  .content
+    .media-section
+    .content-wrapper
+    > .flex
+    .left-column
+    .list-video-wrapper {
+    flex-direction: column;
   }
 }
